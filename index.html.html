@@ -1,0 +1,784 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VORSA CITY | Official Website</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --blue:#1685ff;
+    --cyan:#00d4ff;
+    --bg:#050b17;
+    --glass:rgba(255,255,255,.07);
+    --border:rgba(255,255,255,.13);
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html {scroll-behavior:smooth;}
+
+body {
+    font-family:'Cairo',sans-serif;
+    background:var(--bg);
+    color:white;
+    overflow-x:hidden;
+}
+
+body::before {
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 15% 20%,#0752a044,transparent 35%),
+    radial-gradient(circle at 85% 70%,#007bff30,transparent 40%);
+    pointer-events:none;
+    z-index:-1;
+}
+
+/* HEADER */
+
+header {
+    height:80px;
+    padding:0 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#071020bb;
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo {
+    font-size:23px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.logo span {color:var(--cyan);}
+
+nav {
+    display:flex;
+    gap:28px;
+}
+
+nav a {
+    color:#c1cde0;
+    text-decoration:none;
+    font-size:13px;
+    transition:.3s;
+}
+
+nav a:hover {color:var(--cyan);}
+
+.menu-btn {
+    display:none;
+    background:none;
+    border:0;
+    color:white;
+    font-size:25px;
+}
+
+/* HERO */
+
+.hero {
+    min-height:680px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:70px 20px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before {
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:#087bff;
+    filter:blur(180px);
+    opacity:.2;
+    z-index:-1;
+}
+
+.hero-content {
+    max-width:900px;
+}
+
+.badge {
+    display:inline-block;
+    border:1px solid #00d4ff66;
+    background:#00d4ff12;
+    color:var(--cyan);
+    padding:8px 20px;
+    border-radius:30px;
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+.hero h1 {
+    font-size:clamp(55px,10vw,110px);
+    font-weight:900;
+    line-height:1.3;
+    margin:20px 0 0;
+    text-shadow:0 0 50px #1685ff55;
+}
+
+.hero h1 span {
+    background:linear-gradient(90deg,#1685ff,#00e0ff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.subtitle {
+    color:#aabbd6;
+    font-size:17px;
+    letter-spacing:3px;
+    margin-bottom:25px;
+}
+
+.hero-image {
+    width:min(100%,750px);
+    height:300px;
+    margin:15px auto 30px;
+    border-radius:25px;
+    overflow:hidden;
+    border:1px solid var(--border);
+    background:linear-gradient(135deg,#102d50,#081326);
+    box-shadow:0 20px 80px #007bff30;
+}
+
+.hero-image img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.hero-image .placeholder {
+    height:100%;
+    display:grid;
+    place-items:center;
+    color:#7794b9;
+}
+
+.primary-btn {
+    display:inline-block;
+    padding:15px 38px;
+    background:linear-gradient(120deg,#087bff,#00cfff);
+    color:white;
+    text-decoration:none;
+    border-radius:13px;
+    font-weight:900;
+    font-size:15px;
+    border:0;
+    cursor:pointer;
+    box-shadow:0 8px 35px #1685ff55;
+    transition:.3s;
+}
+
+.primary-btn:hover {
+    transform:translateY(-4px);
+    box-shadow:0 12px 45px #1685ff88;
+}
+
+.release-label {
+    color:#899ab6;
+    font-size:12px;
+    margin-top:20px;
+}
+
+/* SECTIONS */
+
+.container {
+    width:90%;
+    max-width:1150px;
+    margin:auto;
+}
+
+.section {
+    padding:75px 0;
+}
+
+.section-title {
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2 {
+    font-size:32px;
+    font-weight:900;
+}
+
+.section-title p {
+    color:#8294b1;
+    margin-top:8px;
+    font-size:13px;
+}
+
+/* COUNTDOWN */
+
+.countdown-box {
+    background:var(--glass);
+    border:1px solid var(--border);
+    backdrop-filter:blur(20px);
+    border-radius:25px;
+    padding:35px 20px;
+    text-align:center;
+}
+
+.countdown {
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    direction:ltr;
+}
+
+.time {
+    min-width:105px;
+    padding:20px;
+    background:#ffffff0b;
+    border:1px solid var(--border);
+    border-radius:15px;
+}
+
+.time strong {
+    display:block;
+    font-size:35px;
+    color:var(--cyan);
+}
+
+.time span {
+    font-size:12px;
+    color:#94a6c3;
+}
+
+/* FEATURES */
+
+.features {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+}
+
+.feature {
+    padding:27px;
+    border-radius:20px;
+    background:var(--glass);
+    border:1px solid var(--border);
+    transition:.3s;
+}
+
+.feature:hover {
+    transform:translateY(-7px);
+    border-color:#1685ff;
+}
+
+.feature-icon {
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.feature h3 {font-size:17px;}
+
+.feature p {
+    color:#92a3bf;
+    font-size:12px;
+    line-height:2;
+    margin-top:8px;
+}
+
+/* GALLERY */
+
+.gallery {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.gallery-item {
+    height:220px;
+    border-radius:20px;
+    overflow:hidden;
+    background:var(--glass);
+    border:1px solid var(--border);
+}
+
+.gallery-item img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.gallery-item:hover img {
+    transform:scale(1.06);
+}
+
+/* PRE REGISTER */
+
+.register-section {
+    padding:70px 20px;
+    background:linear-gradient(120deg,#0c3260aa,#071326aa);
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+}
+
+.register-card {
+    max-width:550px;
+    margin:auto;
+    background:#ffffff09;
+    border:1px solid var(--border);
+    backdrop-filter:blur(20px);
+    padding:35px;
+    border-radius:25px;
+    text-align:center;
+}
+
+.register-card h2 {
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.register-card p {
+    color:#94a6c3;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.register-card input {
+    width:100%;
+    padding:15px;
+    margin-bottom:13px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    background:#ffffff0a;
+    color:white;
+    font-family:inherit;
+    outline:none;
+    direction:rtl;
+}
+
+.register-card input:focus {
+    border-color:var(--blue);
+}
+
+.register-card button {
+    width:100%;
+}
+
+.success {
+    display:none;
+    margin-top:20px;
+    padding:15px;
+    background:#00cc881a;
+    border:1px solid #00cc8866;
+    color:#66ffbf;
+    border-radius:12px;
+    font-size:13px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align:center;
+    padding:40px 15px;
+    color:#71839f;
+    font-size:12px;
+}
+
+footer strong {
+    color:var(--cyan);
+}
+
+/* MOBILE */
+
+@media(max-width:700px) {
+
+    header {height:70px;}
+
+    nav {
+        display:none;
+        position:absolute;
+        top:70px;
+        right:0;
+        width:100%;
+        background:#081426;
+        padding:25px;
+        flex-direction:column;
+        text-align:center;
+    }
+
+    nav.open {display:flex;}
+
+    .menu-btn {display:block;}
+
+    .hero {min-height:590px;}
+
+    .hero h1 {font-size:57px;}
+
+    .hero-image {height:210px;}
+
+    .gallery {grid-template-columns:1fr;}
+
+    .gallery-item {height:200px;}
+
+    .time {min-width:75px;padding:13px;}
+
+    .time strong {font-size:27px;}
+
+    .register-card {padding:23px;}
+
+}
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">VORSA <span>CITY</span></div>
+
+    <nav id="nav">
+        <a href="#home">الرئيسية</a>
+        <a href="#features">مميزات اللعبة</a>
+        <a href="#gallery">الصور</a>
+        <a href="#register">التسجيل المسبق</a>
+    </nav>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">🎮 UPCOMING GAME</div>
+
+        <h1>VORSA <span>CITY</span></h1>
+
+        <div class="subtitle">YOUR CITY. YOUR RULES.</div>
+
+        <div class="hero-image">
+
+            <!-- ضع رابط الصورة المباشر هنا -->
+
+            <img
+                src="https://i.ibb.co/PLACEHOLDER.jpg"
+                alt="VORSA CITY"
+                onerror="this.style.display='none';this.parentElement.innerHTML='<div class=placeholder>VORSA CITY GAME COVER</div>'"
+            >
+
+        </div>
+
+        <a href="#register" class="primary-btn">
+            PRE-REGISTER NOW
+        </a>
+
+        <div class="release-label">
+            OFFICIAL RELEASE COMING SOON
+        </div>
+
+    </div>
+
+</section>
+
+<!-- COUNTDOWN -->
+
+<section class="section container">
+
+    <div class="section-title">
+        <h2>LAUNCH COUNTDOWN</h2>
+        <p>الوقت المتبقي حتى إطلاق اللعبة</p>
+    </div>
+
+    <div class="countdown-box">
+
+        <div class="countdown">
+
+            <div class="time">
+                <strong id="days">--</strong>
+                <span>DAYS</span>
+            </div>
+
+            <div class="time">
+                <strong id="hours">--</strong>
+                <span>HOURS</span>
+            </div>
+
+            <div class="time">
+                <strong id="minutes">--</strong>
+                <span>MINUTES</span>
+            </div>
+
+            <div class="time">
+                <strong id="seconds">--</strong>
+                <span>SECONDS</span>
+            </div>
+
+        </div>
+
+        <p style="color:#8ca0bd;font-size:12px;margin-top:20px">
+            موعد الإطلاق سيتم الإعلان عنه رسمياً.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="section container" id="features">
+
+    <div class="section-title">
+        <h2>GAME FEATURES</h2>
+        <p>اكتشف عالم VORSA CITY</p>
+    </div>
+
+    <div class="features">
+
+        <div class="feature">
+            <div class="feature-icon">🌆</div>
+            <h3>OPEN WORLD</h3>
+            <p>استكشف عالم اللعبة واكتشف أماكن جديدة.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🚗</div>
+            <h3>VEHICLES</h3>
+            <p>استمتع بتجربة السيارات والتنقل داخل المدينة.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🎯</div>
+            <h3>MISSIONS</h3>
+            <p>خض التحديات والمهام داخل عالم اللعبة.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🏙️</div>
+            <h3>YOUR CITY</h3>
+            <p>عالم مليء بالتفاصيل والتجارب المختلفة.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="section container" id="gallery">
+
+    <div class="section-title">
+        <h2>GAME GALLERY</h2>
+        <p>لقطات من عالم VORSA CITY</p>
+    </div>
+
+    <div class="gallery">
+
+        <div class="gallery-item">
+            <img src="https://placehold.co/700x400/102442/00d4ff?text=VORSA+CITY+01" alt="Game screenshot 1">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://placehold.co/700x400/102442/00d4ff?text=VORSA+CITY+02" alt="Game screenshot 2">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://placehold.co/700x400/102442/00d4ff?text=VORSA+CITY+03" alt="Game screenshot 3">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://placehold.co/700x400/102442/00d4ff?text=VORSA+CITY+04" alt="Game screenshot 4">
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PRE REGISTER -->
+
+<section class="register-section" id="register">
+
+    <div class="register-card">
+
+        <h2>🚀 JOIN THE CITY</h2>
+
+        <p>
+            سجل مسبقاً لتكون من أوائل اللاعبين عند إطلاق VORSA CITY.
+        </p>
+
+        <form id="registerForm">
+
+            <input
+                type="text"
+                id="playerName"
+                placeholder="اسم اللاعب"
+                required
+                maxlength="40"
+            >
+
+            <input
+                type="email"
+                id="playerEmail"
+                placeholder="البريد الإلكتروني"
+                required
+            >
+
+            <button type="submit" class="primary-btn">
+                COMPLETE PRE-REGISTRATION
+            </button>
+
+        </form>
+
+        <div class="success" id="success">
+            تم تجهيز طلب التسجيل بنجاح!
+        </div>
+
+        <p style="margin-top:18px;font-size:10px">
+            VORSA CITY OFFICIAL PRE-REGISTRATION
+        </p>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="logo" style="margin-bottom:12px">
+        VORSA <span>CITY</span>
+    </div>
+
+    © 2026 VORSA. ALL RIGHTS RESERVED.
+
+    <br><br>
+
+    POWERED BY <strong>VORSA</strong>
+
+</footer>
+
+<script>
+
+// MENU
+
+function toggleMenu() {
+    document.getElementById("nav").classList.toggle("open");
+}
+
+// CLOSE MENU AFTER CLICK
+
+document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("nav").classList.remove("open");
+    });
+});
+
+// COUNTDOWN
+// غيّر التاريخ عند تحديد موعد الإطلاق الرسمي
+
+const launchDate = new Date("2027-01-01T00:00:00");
+
+function updateCountdown() {
+
+    const now = new Date();
+    const diff = launchDate - now;
+
+    if(diff <= 0) {
+        document.querySelector(".countdown").innerHTML =
+        "<h2>VORSA CITY IS HERE!</h2>";
+        return;
+    }
+
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const minutes = Math.floor((diff % 3600000) / 60000);
+    const seconds = Math.floor((diff % 60000) / 1000);
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+
+}
+
+setInterval(updateCountdown,1000);
+updateCountdown();
+
+// FIREBASE + PRE-REGISTRATION
+// Firebase web configuration for project: vorsa-store
+const firebaseConfig = {
+    apiKey: "AIzaSyBd8dyIjqf_nE0MtVbyd0QUW09HUb5mtjg",
+    authDomain: "vorsa-store.firebaseapp.com",
+    projectId: "vorsa-store",
+    storageBucket: "vorsa-store.firebasestorage.app",
+    messagingSenderId: "36217653246",
+    appId: "1:36217653246:web:14d0dcd27a35f351f62af",
+    measurementId: "G-EDLNT37XHN"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+const form = document.getElementById("registerForm");
+const submitButton = form.querySelector('button[type="submit"]');
+const successBox = document.getElementById("success");
+
+form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("playerName").value.trim();
+    const email = document.getElementById("playerEmail").value.trim().toLowerCase();
+
+    if (!name || !email) return;
+
+    submitButton.disabled = true;
+    submitButton.textContent = "جارٍ تسجيل طلبك...";
+    successBox.style.display = "none";
+
+    try {
+        const docRef = await db.collection("preorders").add({
+            name: name,
+            email: email,
+            game: "VORSA CITY",
+            source: "official-website",
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+
+        const requestNumber = "VORSA-" + docRef.id.substring(0, 8).toUpperCase();
+        successBox.style.display = "block";
+        successBox.textContent = "تم تسجيلك بنجاح! رقم التسجيل: " + requestNumber;
+        form.reset();
+    } catch (error) {
+        console.error("Pre-registration failed:", error);
+        successBox.style.display = "block";
+        successBox.style.background = "#ff4b4b1a";
+        successBox.style.borderColor = "#ff777766";
+        successBox.style.color = "#ffaaaa";
+        successBox.textContent =
+            "لم نتمكن من إكمال التسجيل. تأكد من نشر قواعد Firestore ثم حاول مرة أخرى.";
+    } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = "COMPLETE PRE-REGISTRATION";
+    }
+});
+
+</script>
+
+</body>
+</ht
